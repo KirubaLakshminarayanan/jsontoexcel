@@ -1,0 +1,4 @@
+2024-04-12 13:33:58,193 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1_20240412133358.xlsx.
+2024-04-12 13:33:58,194 - INFO - Size of converted file: 5259 bytes
+2024-04-12 13:33:58,212 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs_20240412133358.xlsx.
+2024-04-12 13:33:58,213 - INFO - Size of converted file: 6349 bytes

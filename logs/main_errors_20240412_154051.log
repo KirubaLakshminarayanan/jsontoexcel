@@ -1,0 +1,12 @@
+2024-04-12 15:41:08,819 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs_20240412154108.xlsx.
+2024-04-12 15:41:08,820 - INFO - Size of converted file: 6348 bytes
+2024-04-12 15:41:08,837 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json_File.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json_File_20240412154108.xlsx.
+2024-04-12 15:41:08,837 - INFO - Size of converted file: 4903 bytes
+2024-04-12 15:41:08,854 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/sample2_unequalheaders.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/sample2_unequalheaders_20240412154108.xlsx.
+2024-04-12 15:41:08,855 - INFO - Size of converted file: 5714 bytes
+2024-04-12 15:41:08,876 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/unequal_key_value_pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/unequal_key_value_pairs_20240412154108.xlsx.
+2024-04-12 15:41:08,877 - INFO - Size of converted file: 7223 bytes
+2024-04-12 15:42:36,135 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_20240412154236.xlsx.
+2024-04-12 15:42:36,135 - INFO - Size of converted file: 6177 bytes
+2024-04-12 15:42:36,151 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1_20240412154236.xlsx.
+2024-04-12 15:42:36,151 - INFO - Size of converted file: 5258 bytes

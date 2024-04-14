@@ -1,0 +1,19 @@
+2024-04-12 16:30:52,650 - ERROR - Invalid JSON format in C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/invalidjson.json: Expecting value: line 1 column 1 (char 0)
+2024-04-12 16:31:30,484 - ERROR - Skipping C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/emptyfile.json: File is empty.
+2024-04-12 16:31:56,186 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_20240412163156.xlsx.
+2024-04-12 16:31:56,186 - INFO - Size of converted file: 6177 bytes
+2024-04-12 16:31:56,204 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson_File1_20240412163156.xlsx.
+2024-04-12 16:31:56,204 - INFO - Size of converted file: 5258 bytes
+2024-04-12 16:31:56,207 - ERROR - Skipping C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/emptyfile.json: File is empty.
+2024-04-12 16:32:03,299 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/equal key-value pairs_20240412163203.xlsx.
+2024-04-12 16:32:03,300 - INFO - Size of converted file: 6348 bytes
+2024-04-12 16:32:03,313 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json_File.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json_File_20240412163203.xlsx.
+2024-04-12 16:32:03,313 - INFO - Size of converted file: 4903 bytes
+2024-04-12 16:32:03,326 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/Individual_json1_20240412163203.xlsx.
+2024-04-12 16:32:03,326 - INFO - Size of converted file: 5120 bytes
+2024-04-12 16:32:03,329 - ERROR - Invalid JSON format in C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/invalidjson.json: Expecting value: line 1 column 1 (char 0)
+2024-04-12 16:32:08,219 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/sample2_unequalheaders.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/sample2_unequalheaders_20240412163208.xlsx.
+2024-04-12 16:32:08,219 - INFO - Size of converted file: 5714 bytes
+2024-04-12 16:32:08,237 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/unequal_key_value_pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/unequal_key_value_pairs_20240412163208.xlsx.
+2024-04-12 16:32:08,237 - INFO - Size of converted file: 7223 bytes
+2024-04-12 16:37:03,298 - ERROR - Skipping C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/batchjson.json file_entry.pack(): Invalid file format. Please provide a JSON file.
