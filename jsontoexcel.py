@@ -1,21 +1,23 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from tkinter.ttk import Progressbar, Button, Style
-from openpyxl import Workbook
+from tkinter.ttk import Progressbar, Button
 import json
-import os
+from openpyxl import Workbook
 from datetime import datetime
 import logging
+import os
 
 # Create a logs directory if it doesn't exist
 logs_dir = 'logs'
 if not os.path.exists(logs_dir):
     os.makedirs(logs_dir)
 
-# Set up logging
-log_filename = os.path.join(logs_dir, f"main_errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
-logging.basicConfig(filename=log_filename, level=logging.DEBUG,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Function to configure logging with a custom log file name
+def configure_logging(log_filename):
+    logging.basicConfig(filename=log_filename, level=logging.DEBUG,
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+
 
 # Function to check if a file is a JSON file
 def is_json(file_path):
@@ -26,25 +28,29 @@ def is_json(file_path):
     except (ValueError, FileNotFoundError):
         return False
 
+
 # Function to flatten JSON data
 def flatten_json(data, parent_key='', sep='_'):
     if isinstance(data, dict):
         items = {}
         for k, v in data.items():
             new_key = parent_key + sep + k if parent_key else k
-            if isinstance(v, dict):
-                items.update(flatten_json(v, new_key, sep=sep))
-            elif isinstance(v, list):
-                for i, item in enumerate(v):
-                    items.update(flatten_json(item, new_key + sep + str(i), sep=sep))
-            else:
-                items[new_key] = v
+            items.update(flatten_json(v, new_key, sep=sep))
+        return items
+    elif isinstance(data, list):
+        items = {}
+        for i, v in enumerate(data):
+            new_key = parent_key + sep + str(i)
+            items.update(flatten_json(v, new_key, sep=sep))
         return items
     else:
         return {parent_key: data}
 
+
 # Function to convert JSON data to Excel
-def convert_to_excel(file_paths, progress_bar, status_label):
+def convert_to_excel(file_paths, progress_bar, status_label, info_label, completion_label):
+    log_filename = os.path.join(logs_dir, f"main_errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+    configure_logging(log_filename)  # Configure logging with a new log file name
     total_files = len(file_paths)
     progress = 0
     success_count = 0  # Track the number of successful conversions
@@ -70,9 +76,22 @@ def convert_to_excel(file_paths, progress_bar, status_label):
                     messagebox.showerror("Error", error_message)
                     continue
 
-                flattened_data = flatten_json(data)
+                if isinstance(data, dict):
+                    records = [data]
+                elif isinstance(data, list):
+                    records = data
+                else:
+                    logging.error(f"Skipping {file_path}: Invalid JSON data format.")
+                    continue
 
-                headers = sorted(list(flattened_data.keys()))
+                if not records:
+                    logging.error(f"No records found in {file_path}.")
+                    continue
+
+                flattened_records = [flatten_json(record) for record in records]
+
+                # Get the headers in the order of keys from the first record
+                headers = list(flattened_records[0].keys())
 
                 excel_file_name = file_path[:-5] + '_' + datetime.now().strftime("%Y%m%d%H%M%S") + '.xlsx'
                 wb = Workbook()
@@ -80,8 +99,12 @@ def convert_to_excel(file_paths, progress_bar, status_label):
 
                 ws.append(headers)
 
-                row_data = [flattened_data.get(header, "") for header in headers]
-                ws.append(row_data)
+                for record in flattened_records:
+                    row_data = []
+                    for header in headers:
+                        row_data.append(
+                            record.get(header, ''))  # Get value for each header or empty string if not present
+                    ws.append(row_data)
 
                 wb.save(excel_file_name)
                 logging.info(f"{file_path} conversion successful. Converted to {excel_file_name}.")
@@ -89,17 +112,23 @@ def convert_to_excel(file_paths, progress_bar, status_label):
                 success_count += 1  # Increment the success count
         except Exception as e:
             logging.error(f"{file_path} conversion failed! Error: {str(e)}")
+            messagebox.showinfo("Conversion Failed",
+                                f"Conversion of {file_path} failed. Please refer to the log files for more information.")
 
         progress += 1
         progress_bar['value'] = (progress / total_files) * 100
         progress_bar.update_idletasks()
+        completion_label.config(text=f"{int(progress / total_files * 100)}% completed")
 
-    if success_count == total_files:
+    failed_files_count = total_files - success_count
+    if failed_files_count == 0:
         status_label.config(
             text=f"Completed {progress}/{total_files} files. Conversion of JSON to Excel file is successful.")
     else:
         status_label.config(
-            text=f"Completed {progress}/{total_files} files. Conversion of JSON to Excel file is failed.")
+            text=f"Completed {progress}/{total_files} files. Conversion of JSON to Excel file is failed for {failed_files_count} file(s).")
+    info_label.config(text="Please refer to the log files for more information.")
+
 
 # Function to browse for JSON files
 def browse_files(file_entry, convert_to_excel_button):
@@ -109,8 +138,9 @@ def browse_files(file_entry, convert_to_excel_button):
         file_entry.insert(0, ", ".join(file_paths))
         convert_to_excel_button.config(state=tk.NORMAL)
 
+
 # Function to clear selected files
-def clear_files(file_entry, convert_to_excel_button, progress_bar, status_label):
+def clear_files(file_entry, convert_to_excel_button, progress_bar, status_label, info_label, completion_label):
     files = file_entry.get()
     if not files:
         status_label.config(text="")
@@ -118,15 +148,19 @@ def clear_files(file_entry, convert_to_excel_button, progress_bar, status_label)
     else:
         file_entry.delete(0, tk.END)
         status_label.config(text="")
+        completion_label.config(text="")
+        info_label.config(text="")
         convert_to_excel_button.config(state=tk.DISABLED)
         progress_bar.pack_forget()  # Hide the progress bar
         messagebox.showinfo("Files Cleared", "Selected files are cleared.")
 
+
 # Function to handle conversion process
-def handle_conversion(file_entry, progress_bar, status_label):
+def handle_conversion(file_entry, progress_bar, status_label, info_label, completion_label):
     file_paths = file_entry.get().split(", ")
     progress_bar.pack()  # Show the progress bar
-    convert_to_excel(file_paths, progress_bar, status_label)
+    convert_to_excel(file_paths, progress_bar, status_label, info_label, completion_label)
+
 
 # Function to confirm exiting the application
 def confirm_exit(root):
@@ -134,35 +168,66 @@ def confirm_exit(root):
     if confirmation == 'yes':
         root.destroy()
 
+
+class ToolTip:
+    def __init__(self, widget, text):
+        self.widget = widget
+        self.text = text
+        self.widget.bind("<Enter>", self.show_tip)
+        self.widget.bind("<Leave>", self.hide_tip)
+
+    def show_tip(self, event=None):
+        x, y, _, _ = self.widget.bbox("insert")
+        x += self.widget.winfo_rootx() + 25
+        y += self.widget.winfo_rooty() + 25
+        self.tip_window = tk.Toplevel(self.widget)
+        self.tip_window.wm_overrideredirect(True)
+        self.tip_window.wm_geometry(f"+{x}+{y}")
+        label = tk.Label(self.tip_window, text=self.text, justify="left", background="#ffffe0", relief="solid",
+                         borderwidth=1)
+        label.pack()
+
+    def hide_tip(self, event=None):
+        if self.tip_window:
+            self.tip_window.destroy()
+
+
 root = tk.Tk()
 root.title("JSON to Excel Converter")
-root.geometry("500x300")
+root.geometry("600x400")  # Increase window size
 
-style = Style()
-style.configure('TButton', font=('calibri', 10, 'bold'), borderwidth='4')
-
-file_label = tk.Label(root, text="Select JSON Files:", font=('calibri', 12, 'bold'))
+file_label = tk.Label(root, text="Select JSON Files:")
 file_label.pack()
 
-file_entry = tk.Entry(root, width=50, font=('calibri', 10))
+file_entry = tk.Entry(root, width=70)
 file_entry.pack()
+ToolTip(file_entry, "Select JSON file(s) for conversion")  # Add tooltip to file entry
 
-browse_button = Button(root, text="Browse", command=lambda: browse_files(file_entry, convert_to_excel_button))
+browse_button = tk.Button(root, text="Browse", command=lambda: browse_files(file_entry, convert_to_excel_button))
 browse_button.pack()
 
-clear_button = Button(root, text="Clear", command=lambda: clear_files(file_entry, convert_to_excel_button, progress_bar, status_label))
+clear_button = tk.Button(root, text="Clear",
+                         command=lambda: clear_files(file_entry, convert_to_excel_button, progress_bar, status_label,
+                                                     info_label, completion_label))
 clear_button.pack()
+
+convert_to_excel_button = tk.Button(root, text="Convert to Excel", state=tk.DISABLED,
+                                    command=lambda: handle_conversion(file_entry, progress_bar, status_label,
+                                                                      info_label, completion_label))
+convert_to_excel_button.pack()
+
+exit_button = tk.Button(root, text="Exit", command=lambda: confirm_exit(root))
+exit_button.pack()
 
 progress_bar = Progressbar(root, orient=tk.HORIZONTAL, length=200, mode='determinate')
 
-convert_to_excel_button = Button(root, text="Convert to Excel", state=tk.DISABLED,
-                                    command=lambda: handle_conversion(file_entry, progress_bar, status_label))
-convert_to_excel_button.pack()
-
-exit_button = Button(root, text="Exit", command=lambda: confirm_exit(root))
-exit_button.pack()
-
-status_label = tk.Label(root, text="", font=('calibri', 12))
+status_label = tk.Label(root, text="")
 status_label.pack()
+
+info_label = tk.Label(root, text="", fg="blue")
+info_label.pack()
+
+completion_label = tk.Label(root, text="", fg="green")
+completion_label.pack()
 
 root.mainloop()
