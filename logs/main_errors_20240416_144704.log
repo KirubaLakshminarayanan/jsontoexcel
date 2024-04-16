@@ -1,0 +1,5 @@
+2024-04-16 14:47:04,265 - ERROR - Invalid JSON format in C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/invalidjson.json: Expecting value: line 1 column 1 (char 0)
+2024-04-16 14:47:07,426 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/nestedstructure_arrayof_objects_multiple_records.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/nestedstructure_arrayof_objects_multiple_records_20240416144707.xlsx.
+2024-04-16 14:47:07,426 - INFO - Size of converted file: 5127 bytes
+2024-04-16 14:47:07,442 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Sample_REST_addPerson_Request.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Sample_REST_addPerson_Request_20240416144707.xlsx.
+2024-04-16 14:47:07,443 - INFO - Size of converted file: 5618 bytes

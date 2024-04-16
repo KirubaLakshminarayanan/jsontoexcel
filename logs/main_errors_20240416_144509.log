@@ -1,0 +1,10 @@
+2024-04-16 14:45:09,346 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_withsinglekey_Valuearrayofjobjects.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_withsinglekey_Valuearrayofjobjects_20240416144509.xlsx.
+2024-04-16 14:45:09,346 - INFO - Size of converted file: 5719 bytes
+2024-04-16 14:45:09,353 - ERROR - Skipping C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/emptyfile.json: File is empty.
+2024-04-16 14:45:10,997 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Individual_json1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Individual_json1_20240416144510.xlsx.
+2024-04-16 14:45:10,997 - INFO - Size of converted file: 5121 bytes
+2024-04-16 14:45:10,999 - ERROR - Invalid JSON format in C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/invalidjson.json: Expecting value: line 1 column 1 (char 0)
+2024-04-16 14:45:12,337 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/nestedstructure_arrayof_objects_multiple_records.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/nestedstructure_arrayof_objects_multiple_records_20240416144512.xlsx.
+2024-04-16 14:45:12,337 - INFO - Size of converted file: 5127 bytes
+2024-04-16 14:45:12,351 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Sample_REST_addPerson_Request.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Sample_REST_addPerson_Request_20240416144512.xlsx.
+2024-04-16 14:45:12,351 - INFO - Size of converted file: 5618 bytes

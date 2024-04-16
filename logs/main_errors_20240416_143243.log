@@ -1,0 +1,12 @@
+2024-04-16 14:32:43,891 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/batch_equal key-value pairs_multiplerecords.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/batch_equal key-value pairs_multiplerecords_20240416143243.xlsx.
+2024-04-16 14:32:43,891 - INFO - Size of converted file: 6380 bytes
+2024-04-16 14:32:43,909 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/batchjson_File1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/batchjson_File1_20240416143243.xlsx.
+2024-04-16 14:32:43,909 - INFO - Size of converted file: 5261 bytes
+2024-04-16 14:32:43,928 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_unequal_key_value_pairs.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_unequal_key_value_pairs_20240416143243.xlsx.
+2024-04-16 14:32:43,928 - INFO - Size of converted file: 7220 bytes
+2024-04-16 14:32:43,945 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_withsinglekey_Valuearrayofjobjects.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/bj_withsinglekey_Valuearrayofjobjects_20240416143243.xlsx.
+2024-04-16 14:32:43,945 - INFO - Size of converted file: 5719 bytes
+2024-04-16 14:32:43,947 - ERROR - Skipping C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/emptyfile.json: File is empty.
+2024-04-16 14:32:46,522 - INFO - C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Individual_json1.json conversion successful. Converted to C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/Individual_json1_20240416143246.xlsx.
+2024-04-16 14:32:46,522 - INFO - Size of converted file: 5121 bytes
+2024-04-16 14:32:46,526 - ERROR - Invalid JSON format in C:/Users/LKiruba/Desktop/Json_to_csv/Sample_Scenarios/TypeofJson/Allpossible_json_structure/invalidjson.json: Expecting value: line 1 column 1 (char 0)

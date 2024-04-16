@@ -124,10 +124,11 @@ def convert_to_excel(file_paths, progress_bar, status_label, info_label, complet
     if failed_files_count == 0:
         status_label.config(
             text=f"Completed {progress}/{total_files} files. Conversion of JSON to Excel file is successful.")
+        info_label.config(text="")
     else:
         status_label.config(
             text=f"Completed {progress}/{total_files} files. Conversion of JSON to Excel file is failed for {failed_files_count} file(s).")
-    info_label.config(text="Please refer to the log files for more information.")
+        info_label.config(text="Please refer to the log files for more information.")
 
 
 # Function to browse for JSON files
@@ -151,6 +152,8 @@ def clear_files(file_entry, convert_to_excel_button, progress_bar, status_label,
         completion_label.config(text="")
         info_label.config(text="")
         convert_to_excel_button.config(state=tk.DISABLED)
+        progress_bar['value'] = 0
+        progress_bar.update_idletasks()
         progress_bar.pack_forget()  # Hide the progress bar
         messagebox.showinfo("Files Cleared", "Selected files are cleared.")
 
